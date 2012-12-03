@@ -1,0 +1,138 @@
+# Thanks to the authors of fear2.theme, r00t.theme and the monokai colorscheme for inspiration
+# Steve 'ryz' Hassenpflug <ryzawy@gmail.com>
+# 2012-12-03 14:38:07
+
+# default foreground color / -1 = default terminal color
+default_color = "-1";
+
+# these characters are automatically replaced with the specified color
+replaces = { "[]=" = "%K$*%n"; };
+
+abstracts = {
+  # generic stuff
+
+  # insert at beginning of each non-message line
+  line_start = "%W-%w-%K-%n ";
+  # timestamp styling
+  timestamp = "%K$*%n";
+  hilight = "%r$*%n";
+  error = "%R$*%n";
+  channel = "%g$*%n";
+  nick = "%r$*%n";
+  nickhost = "%K!$*%n";
+  server = "%g$*%n";
+  comment = "[$*]";
+  reason = "{comment $*}";
+  mode = "{comment $*}";
+
+  channick_hilight = "%r$*%n";
+  chanhost_hilight = "{nickhost %K$*%n}";
+  channick = "%N$*%n";
+  chanhost = "{nickhost $*}";
+  channelhilight = "%K$*%n";
+  ban = "%b$*%n";
+
+  # basic message styling; $0 = nick mode (eg. op/voice), $1 = nick
+  msgnick = "%K<%m$0%N$1-%K>%n %|";
+
+  # own message/nick styling
+  ownmsgnick = "%K{msgnick %b$0 $1-}";
+  ownnick = "%w$*%n";
+
+  # public message in a channel; $0 = nick mode, $1 = nick
+  pubmsgnick = "{msgnick %m$0 %n$1-}";
+  pubnick = "%N$*%n";
+
+  # public message in a channel meant for me; $0 = nick mode, $1 = nick
+  pubmsgmenick = "%Y{msgnick $0 $1-}";
+  menick = "%r$*%n";
+
+  pubmsghinick = "%y{msgnick $1 $0%r$2-%n}";
+  msgchannel = "%K:%w$*%n";
+  privmsg = "%r$0%r!%r$1 %K<<%n ";
+  ownprivmsg = "%r$1- %K>>%n ";
+  ownprivmsgnick = "{msgnick  $*}";
+  ownprivnick = "%K$*%n";
+
+  # private message in query
+  privmsgnick = "%R{msgnick  %r$*%n}";
+
+  action_core = "%W :~# $*%n";
+  action = "{action_core $*} ";
+  ownaction = "{action $*}";
+  ownaction_target = "{action_core $0}%K:%K$1%n ";
+  pvtaction = "%W (*) $*%n ";
+  pvtaction_query = "{action $*}";
+  pubaction = "{action $*}";
+
+  ### other IRC events
+
+  # /whois
+  whois = " $[8]0 : $1-";
+
+  # notices
+  ownnotice = "[ %K$0%N -> %r$1-%K ]%n ";
+  notice = "%K[ %Knotice %N<- %r$0%K ]%n ";
+  pubnotice_channel = "%K:%r$*";
+  pvtnotice_host = "%c!%c$*%n";
+  servernotice = "%K!$*%n ";
+
+  # CTCPs
+  ownctcp = "[%r$0%K(%R$1-%K)] ";
+  ctcp = "%g$*%n";
+
+  # wallops; IRC operator stuff
+  wallop = "%W$*%n: ";
+  wallop_nick = "%n$*";
+  wallop_action = "%W * $*%n ";
+
+  # netsplits
+  netsplit = "%R$*%n";
+  netjoin = "%C$*%n";
+
+  # /names list
+  names_prefix = "";
+  names_nick = "[%_%m$0%n%_$1-] ";
+  names_nick_op = "{names_nick $*}";
+  names_nick_halfop = "{names_nick $*}";
+  names_nick_voice = "{names_nick $*}";
+  names_users = "[%N$*%n]";
+  names_channel = "%K@ %N$*%n";
+
+  # DCC (file exchange/non-relayed chats)
+  dcc = "%g$*%n";
+  dccfile = "%_$*%_";
+  dccownmsg = "[%r$0%K($1-%K)%n] ";
+  dccownnick = "%R$*%n";
+  dccownquerynick = "%W$*%n";
+  dccownaction = "{action $*}";
+  dccownaction_target = "{action_core $0}%K:%c$1%n ";
+  dccmsg = "[%G$1-%K(%g$0%K)%n] ";
+  dccquerynick = "%G$*%n";
+  dccaction = "%W (*dcc*) $*%n %|";
+
+
+
+  sb_background = "%n";
+  sb_prompt_bg = "%n";
+  sb_info_bg = "%n";
+  sbstart = "%W>%n ";
+  sbend = " ";
+
+  topicsbstart = "{sbstart $*}";
+  topicsbsend = "{sbend $*}";
+  
+  prompt = "$* | ";
+
+  sb = "$* ";
+  sbmode = "|+$*";
+  sbaway = " [gone]";
+  sbservertag = ":%g$0%n";
+
+  sb_act_sep = "%n$*";
+  sb_act_text = "%n$*";
+  sb_act_msg = "%W$*";
+  sb_act_hilight = "%r$*";
+  sb_act_hilight_color = "$0$1-%n";
+};
+

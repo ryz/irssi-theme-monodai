@@ -1,4 +1,4 @@
-irssi-theme-monodai
+irssi monodai theme
 ===================
 
-Dark irssi theme, optimised for the monodai terminal colorscheme
+Dark irssi theme, optimised for the monodai terminal colorscheme.
